@@ -2,20 +2,22 @@ const allStudentsData = {
   "CSE-I": [
     { "name": "BANDI BHANU AKHIL", "roll": "25EU04005" },
     { "name": "BOMMULURI ANSHU MAANYA", "roll": "25EU04010" },
-    { "name": "BULASARA UMESHH NANDA", "roll": "25EU04011" },
     { "name": "KEERTHI PRIYA CHENNAMSETTI", "roll": "25EU04015" },
     { "name": "CHIGURUPATI YUVAN SATYA SAI", "roll": "25EU04016" },
+    { "name": "NISCHAL", "roll": "25EU04018" },
     { "name": "GAADI PRANESH SAI", "roll": "25EU04020" },
     { "name": "GOTTIPATI AVANI", "roll": "25EU04022" },
     { "name": "JASTHY SRI KARTHIKEYA", "roll": "25EU04024" },
     { "name": "KALLURU GAYATHRI SUSHMA", "roll": "25EU04026" },
+    { "name": "KOKKU SUJAY", "roll": "25EU04032" },
     { "name": "KOMMARAJU SEETA RAMA SRESHTA", "roll": "25EU04034" },
     { "name": "KOTHARU YAMINI", "roll": "25EU04036" },
     { "name": "MANASWINI VUNDAVALLI", "roll": "25EU04041" },
     { "name": "MAZUMDAR VENKATA SAI HARSHA", "roll": "25EU04042" },
     { "name": "MOHAMMED REHAN AHAMED", "roll": "25EU04045" },
     { "name": "PRATTI SAI VARSHA", "roll": "25EU04048" },
-    { "name": "SHAIK SAMEERA", "roll": "25EU04055" }
+    { "name": "SHAIK SAMEERA", "roll": "25EU04055" },
+    { "name": "SHAIK SHEENA AHMED", "roll": "25EU04056" }
   ],
   "CSE-II": [
     { "name": "ALLU VYSHNAVI PHANI SRI", "roll": "25EU04069" },
@@ -42,8 +44,7 @@ const allStudentsData = {
     { "name": "SUDIMALLA AMRUTHA SAHITHYA", "roll": "25EU04187" },
     { "name": "T SHANMUKHA VENKATA SAI", "roll": "25EU04188" },
     { "name": "VARIKUTI INDHIRA REDDY", "roll": "25EU04194" },
-    { "name": "VENTRAPRAGADA VAISHNAVI", "roll": "25EU04195" },
-    { "name": "TELIKEPALLI KRISHNA SASANK", "roll": "Long Leave" }
+    { "name": "VENTRAPRAGADA VAISHNAVI", "roll": "25EU04195" }
   ],
   "CSE-IV": [
     { "name": "ANNE RUTHVIK", "roll": "25EU04202" },
@@ -74,10 +75,9 @@ const allStudentsData = {
     { "name": "MOHAMMAD FAIZAAN", "roll": "25EU04304" },
     { "name": "NATUKULA BHUVAN CHANDRA", "roll": "25EU04310" },
     { "name": "SANGA SNIGDHA", "roll": "25EU04315" },
+    { "name": "SRAVYA CHOWDARY MALLIPEDDI", "roll": "25EU04319" },
     { "name": "VELPULA SUSHANTHIKA", "roll": "25EU04329" },
-    { "name": "YARRAMSETTI BHAVYA SAI", "roll": "25EU04330" },
-    { "name": "GIDUGU KOMALI", "roll": "" },
-    { "name": "SRAVYA CHOWDARY MALLIPEDDI", "roll": "" }
+    { "name": "YARRAMSETTI BHAVYA SAI", "roll": "25EU04330" }
   ],
   "CSE-VI": [
     { "name": "ANISETTY GNANA SRUTHI", "roll": "25EU04336" },
@@ -96,11 +96,16 @@ const allStudentsData = {
     { "name": "VEMULAPALLI SAATWIKA", "roll": "25EU04392" }
   ],
   "CSE-VII": [
+    { "name": "ANUMALA YOGYATHA", "roll": "25EU04399" },
     { "name": "BADE SAI NAGA DHEERAJ", "roll": "25EU04400" },
     { "name": "BOGADHI VENKAT RAM GANESH", "roll": "25EU04402" },
+    { "name": "BOPPANA HARSHITHA", "roll": "25EU04404" },
     { "name": "DASARI PHANINDRA", "roll": "25EU04408" },
     { "name": "GOTTIPATI SRIJAY", "roll": "25EU04413" },
     { "name": "KOLLA TRINAY", "roll": "25EU04422" },
+    { "name": "KONERU RISHITA", "roll": "25EU04424" },
+    { "name": "KOTHAMASU HEMA VAISHNAVI", "roll": "25EU04427" },
+    { "name": "KUMBHAM JOSHITA", "roll": "25EU04428" },
     { "name": "MALLINA SRI PRAMODHA TANAYA", "roll": "25EU04430" },
     { "name": "MEDEPALLI GEETHIKA", "roll": "25EU04433" },
     { "name": "NARABOYINA NAGA TEJA SWAROOP", "roll": "25EU04438" },
