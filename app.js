@@ -1,27 +1,19 @@
-const studentsData = [
-    { name: "ANNE RUTHVIK", roll: "25EU004202" },
-    { name: "BANTU MEGHANA", roll: "25EU004203" },
-    { name: "BUSIREDDY ARCHANA", roll: "25EU004207" },
-    { name: "CHERUKURI NAGA SAI HARSHINI", roll: "25EU004209" },
-    { name: "KATTA VENKATA NAGA SAI KARTHIK", roll: "25EU004221" },
-    { name: "MAJJI NIHARIKA", roll: "25EU004226" },
-    { name: "MANUGURI BHUVANA KRUTHI", roll: "25EU004230" },
-    { name: "MEDASANI TEJO RAVI RAM", roll: "25EU004231" },
-    { name: "MENDU MOHAN PRAMOADH", roll: "25EU004233" },
-    { name: "MOHAMMAD ARIF", roll: "25EU004234" },
-    { name: "NAGUMOTHU VISHNU VARDHAN", roll: "25EU004239" },
-    { name: "NUNNA TANMAYI MEGHANA", roll: "25EU004240" },
-    { name: "RAGA SRUTHI", roll: "25EU004243" },
-    { name: "SINGAMSETTY BHARATH SAI RAM", roll: "25EU004251" },
-    { name: "SYED KHAZA MOHINUDDIN", roll: "25EU004255" },
-    { name: "VEDASRI NAARISETTI", roll: "25EU004262" }
-];
-
+// Global State
+let currentSection = null;
+let currentStudents = [];
 let absentRollNumbers = new Set();
+
+// DOM Elements
+const sectionView = document.getElementById('section-view');
+const attendanceView = document.getElementById('attendance-view');
+const sectionGrid = document.getElementById('section-grid');
 
 const studentListEl = document.getElementById('student-list');
 const totalCountEl = document.getElementById('total-count');
 const absentCountEl = document.getElementById('absent-count');
+const currentSectionTitle = document.getElementById('current-section-title');
+
+const backBtn = document.getElementById('back-btn');
 const generateBtn = document.getElementById('generate-btn');
 const modal = document.getElementById('report-modal');
 const closeBtn = document.getElementById('close-btn');
@@ -29,14 +21,61 @@ const copyBtn = document.getElementById('copy-btn');
 const reportOutput = document.getElementById('report-output');
 
 function init() {
-    totalCountEl.textContent = studentsData.length;
+    renderSectionGrid();
+}
+
+function renderSectionGrid() {
+    sectionGrid.innerHTML = '';
+    
+    // allStudentsData is loaded globally from data.js
+    const sections = Object.keys(allStudentsData).sort();
+    
+    sections.forEach((section, index) => {
+        const btn = document.createElement('div');
+        btn.className = 'section-card';
+        btn.style.animationDelay = `${index * 0.04}s`;
+        
+        btn.innerHTML = `
+            <div class="section-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+            </div>
+            <div class="section-details">
+                <h3>${section}</h3>
+                <p>${allStudentsData[section].length} Students</p>
+            </div>
+            <div class="section-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+        `;
+        
+        btn.onclick = () => openSection(section);
+        sectionGrid.appendChild(btn);
+    });
+}
+
+function openSection(sectionName) {
+    currentSection = sectionName;
+    currentStudents = allStudentsData[sectionName] || [];
+    absentRollNumbers.clear();
+    
+    // Update UI
+    currentSectionTitle.textContent = sectionName;
+    totalCountEl.textContent = currentStudents.length;
+    updateCounts();
     renderStudents();
+    
+    // Switch views
+    sectionView.classList.add('hidden');
+    attendanceView.classList.remove('hidden');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
 }
 
 function renderStudents() {
     studentListEl.innerHTML = '';
     
-    studentsData.forEach((student, index) => {
+    currentStudents.forEach((student, index) => {
         const card = document.createElement('div');
         card.className = `student-card ${absentRollNumbers.has(student.roll) ? 'absent' : ''}`;
         card.style.animationDelay = `${index * 0.03}s`;
@@ -75,7 +114,9 @@ function updateCounts() {
 }
 
 function generateReport() {
-    let report = "CSE - 4\n";
+    if (!currentSection) return;
+    
+    let report = `${currentSection}\n`;
     
     if (absentRollNumbers.size === 0) {
         report += "all present";
@@ -102,8 +143,15 @@ function copyToClipboard() {
     }, 2000);
 }
 
+function goBack() {
+    attendanceView.classList.add('hidden');
+    sectionView.classList.remove('hidden');
+    window.scrollTo(0, 0);
+}
+
 // Event Listeners
 generateBtn.addEventListener('click', generateReport);
+backBtn.addEventListener('click', goBack);
 closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 copyBtn.addEventListener('click', copyToClipboard);
 
