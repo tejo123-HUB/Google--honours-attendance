@@ -1,19 +1,25 @@
 // Global State
+let currentDepartment = null;
 let currentSection = null;
 let currentStudents = [];
 let absentRollNumbers = new Set();
 
 // DOM Elements
-const sectionView = document.getElementById('section-view');
-const attendanceView = document.getElementById('attendance-view');
-const sectionGrid = document.getElementById('section-grid');
+const departmentView = document.getElementById('department-view');
+const departmentGrid = document.getElementById('department-grid');
 
+const sectionView = document.getElementById('section-view');
+const sectionGrid = document.getElementById('section-grid');
+const currentDepartmentTitle = document.getElementById('current-department-title');
+
+const attendanceView = document.getElementById('attendance-view');
 const studentListEl = document.getElementById('student-list');
 const totalCountEl = document.getElementById('total-count');
 const absentCountEl = document.getElementById('absent-count');
 const currentSectionTitle = document.getElementById('current-section-title');
 
-const backBtn = document.getElementById('back-btn');
+const backToDepartmentsBtn = document.getElementById('back-to-departments-btn');
+const backBtn = document.getElementById('back-btn'); // Back to sections
 const generateBtn = document.getElementById('generate-btn');
 const modal = document.getElementById('report-modal');
 const closeBtn = document.getElementById('close-btn');
@@ -21,14 +27,57 @@ const copyBtn = document.getElementById('copy-btn');
 const reportOutput = document.getElementById('report-output');
 
 function init() {
-    renderSectionGrid();
+    renderDepartmentGrid();
 }
 
-function renderSectionGrid() {
-    sectionGrid.innerHTML = '';
+function renderDepartmentGrid() {
+    departmentGrid.innerHTML = '';
     
-    // allStudentsData is loaded globally from data.js
-    const sections = Object.keys(allStudentsData).sort();
+    // departmentsData is loaded globally from data.js
+    const deptKeys = Object.keys(departmentsData);
+    
+    deptKeys.forEach((deptId, index) => {
+        const dept = departmentsData[deptId];
+        const btn = document.createElement('div');
+        btn.className = 'section-card';
+        btn.style.animationDelay = `${index * 0.04}s`;
+        
+        btn.innerHTML = `
+            <div class="section-icon">
+                ${dept.icon}
+            </div>
+            <div class="section-details">
+                <h3>${dept.name}</h3>
+                <p>${dept.sections.length} Sections</p>
+            </div>
+            <div class="section-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+        `;
+        
+        btn.onclick = () => openDepartment(deptId);
+        departmentGrid.appendChild(btn);
+    });
+}
+
+function openDepartment(deptId) {
+    currentDepartment = deptId;
+    const dept = departmentsData[deptId];
+    
+    // Update UI
+    currentDepartmentTitle.textContent = dept.name;
+    
+    // Render the sections for this department
+    renderSectionGrid(dept.sections);
+    
+    // Switch views
+    departmentView.classList.add('hidden');
+    sectionView.classList.remove('hidden');
+    window.scrollTo(0, 0);
+}
+
+function renderSectionGrid(sections) {
+    sectionGrid.innerHTML = '';
     
     sections.forEach((section, index) => {
         const btn = document.createElement('div');
@@ -41,7 +90,7 @@ function renderSectionGrid() {
             </div>
             <div class="section-details">
                 <h3>${section}</h3>
-                <p>${allStudentsData[section].length} Students</p>
+                <p>${allStudentsData[section] ? allStudentsData[section].length : 0} Students</p>
             </div>
             <div class="section-arrow">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -68,7 +117,6 @@ function openSection(sectionName) {
     sectionView.classList.add('hidden');
     attendanceView.classList.remove('hidden');
     
-    // Scroll to top
     window.scrollTo(0, 0);
 }
 
@@ -144,15 +192,22 @@ function copyToClipboard() {
     }, 2000);
 }
 
-function goBack() {
+function goBackToSections() {
     attendanceView.classList.add('hidden');
     sectionView.classList.remove('hidden');
     window.scrollTo(0, 0);
 }
 
+function goBackToDepartments() {
+    sectionView.classList.add('hidden');
+    departmentView.classList.remove('hidden');
+    window.scrollTo(0, 0);
+}
+
 // Event Listeners
 generateBtn.addEventListener('click', generateReport);
-backBtn.addEventListener('click', goBack);
+backBtn.addEventListener('click', goBackToSections);
+backToDepartmentsBtn.addEventListener('click', goBackToDepartments);
 closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 copyBtn.addEventListener('click', copyToClipboard);
 

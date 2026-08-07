@@ -10,10 +10,24 @@
 <body>
     <div class="container">
         
-        <!-- SECTION SELECTION VIEW -->
-        <div id="section-view">
+        <!-- DEPARTMENT SELECTION VIEW (Tier 1) -->
+        <div id="department-view">
             <header>
                 <h1>Attendance Tracker</h1>
+                <p>Select your <span class="highlight">Department</span></p>
+            </header>
+            <div id="department-grid" class="section-grid">
+                <!-- Department cards will be injected here -->
+            </div>
+        </div>
+
+        <!-- SECTION SELECTION VIEW (Tier 2) -->
+        <div id="section-view" class="hidden">
+            <header style="padding-bottom: 1rem; position: relative;">
+                <button id="back-to-departments-btn" class="btn tertiary-btn back-btn" style="position: absolute; left: 1.5rem; top: 3rem; padding: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <h1 id="current-department-title">CSE</h1>
                 <p>Select your <span class="highlight">Section</span></p>
             </header>
             <div id="section-grid" class="section-grid">

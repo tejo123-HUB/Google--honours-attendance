@@ -1,3 +1,26 @@
+const departmentsData = {
+  "CSE": {
+    name: "Computer Science",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>`,
+    sections: ["CSE-I", "CSE-II", "CSE-III", "CSE-IV", "CSE-V", "CSE-VI", "CSE-VII"]
+  },
+  "AIML": {
+    name: "AI & Machine Learning",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
+    sections: ["AI&ML-I", "AI&ML-II"]
+  },
+  "AIDS": {
+    name: "AI & Data Science",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+    sections: ["AI&DS-I", "AI&DS-II"]
+  },
+  "IT": {
+    name: "Information Technology",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`,
+    sections: ["IT-I", "IT-II"]
+  }
+};
+
 const allStudentsData = {
   "CSE-I": [
     { "name": "BANDI BHANU AKHIL", "roll": "25EU04005" },
@@ -113,5 +136,87 @@ const allStudentsData = {
     { "name": "PENUMATASA NITHYA HASINI", "roll": "25EU04442" },
     { "name": "TURPATI KEERTHANA SAI", "roll": "25EU04459" },
     { "name": "VAJJHA ABHI RAM", "roll": "25EU04460" }
+  ],
+  "AI&ML-I": [
+    { "name": "ALA JASWIKA", "roll": "25EU02001" },
+    { "name": "BUDATI SYAMCHARAN", "roll": "25EU02011" },
+    { "name": "DEVABHAKTHUNI SRI NIDHITHA", "roll": "25EU02015" },
+    { "name": "GONDI REVANTH RAI", "roll": "25EU02019" },
+    { "name": "IPPILI PRAVALLIKA", "roll": "25EU02021" },
+    { "name": "KAKARLA SAI JATIN", "roll": "25EU02023" },
+    { "name": "KOLAPALLI DHANUSHKA", "roll": "25EU02026" },
+    { "name": "KOLAPALLI VENKATA PHANIDEEP", "roll": "25EU02027" },
+    { "name": "KOLLIPALLI RISHETHA", "roll": "25EU02028" },
+    { "name": "MACHINA NAVYA SRI", "roll": "25EU02034" },
+    { "name": "MARRI SRI DIVYA", "roll": "25EU02039" },
+    { "name": "NAKKA ANUGRAHA JOSE", "roll": "25EU02044" },
+    { "name": "NAREDLA VL MANIKANTA KARTHIKEYA", "roll": "25EU02047" },
+    { "name": "PENDRUTHI DOLA NAGA SAI PRIYANKA", "roll": "25EU02051" },
+    { "name": "SAMSANI SASI", "roll": "25EU02055" },
+    { "name": "THOTA PRANAV SAI", "roll": "25EU02063" },
+    { "name": "TIPPARAMALLI ROHITH RAJ", "roll": "25EU02064" },
+    { "name": "P. VEDALATHA", "roll": "25EU02104" }
+  ],
+  "AI&ML-II": [
+    { "name": "ARADANI TRIVIKRAM ADITYA VARMA", "roll": "25EU02067" },
+    { "name": "BALAGAMSETTY SASI KAILASH", "roll": "25EU02069" },
+    { "name": "JOGI VIJAY RAJ", "roll": "25EU02080" },
+    { "name": "KORLAKUNTA MANI SRI HARSHA", "roll": "25EU02091" },
+    { "name": "MALLIPUDI NIYATI SATYA RATNA", "roll": "25EU02095" },
+    { "name": "PITTALA GAYATHRI SIVA PRIYA", "roll": "25EU02110" },
+    { "name": "VENNA CHARAN TEJA", "roll": "25EU02129" }
+  ],
+  "AI&DS-I": [
+    { "name": "CHALLA NAGA LAKSHMI ARUNA HASINI", "roll": "25EU10007" },
+    { "name": "CHALLAPAREDDY RAMCHARAN", "roll": "25EU10008" },
+    { "name": "CHATRAGADDA NAVYA VENKATA SAI DEEPTHI", "roll": "25EU10010" },
+    { "name": "CHEEDELLA VARSHITHA", "roll": "25EU10011" },
+    { "name": "CHINTALAPATI KRISHNA KOUSIK", "roll": "25EU10012" },
+    { "name": "GONEDA TUSHAR KARTHIK", "roll": "25EU10016" },
+    { "name": "JOGI JASWANTH SAI PRASAD", "roll": "25EU10023" },
+    { "name": "KANCHARLA SAI RAMYA", "roll": "25EU10029" },
+    { "name": "PAPADASU ESHITHA", "roll": "25EU10048" },
+    { "name": "PILLA GUNA DEEPIKA", "roll": "25EU10050" },
+    { "name": "POTTURI SIVA SAI RENUKA", "roll": "25EU10052" },
+    { "name": "YALAVARTHY KARTHIKEYA", "roll": "25EU10065" }
+  ],
+  "AI&DS-II": [
+    { "name": "CHENNU SRI MODINI", "roll": "25EU10069" },
+    { "name": "CHETLAPALLI BUTCHA VENKAT ASHISH", "roll": "25EU10070" },
+    { "name": "GOLLAPUDI SAIMANOJ", "roll": "25EU10075" },
+    { "name": "KOLLATI HARSHITHA", "roll": "25EU10080" },
+    { "name": "MADDINENI BHAVYA SREE", "roll": "25EU10083" },
+    { "name": "MANYAM PAVITRA", "roll": "25EU10090" },
+    { "name": "PANTHAGANI HANSIKA", "roll": "25EU10101" },
+    { "name": "PARISI TEJASWI", "roll": "25EU10103" },
+    { "name": "SANDAKA POOJITHA", "roll": "25EU10110" },
+    { "name": "SATTI MOHAN KIRAN REDDY", "roll": "25EU10111" },
+    { "name": "SHAIK NIHAL", "roll": "25EU10112" },
+    { "name": "TAMMANA SRI VIDYA", "roll": "25EU10118" },
+    { "name": "UPPALA LAKSHMI SAI KIRAN", "roll": "25EU10126" },
+    { "name": "VAAKA NAYANASREE", "roll": "25EU10127" },
+    { "name": "VEMIREDDY SRUJANA", "roll": "25EU10129" },
+    { "name": "VUNDE PRANAVI JAYALAKSHMI", "roll": "25EU10130" }
+  ],
+  "IT-I": [
+    { "name": "A CHINMAY SRI", "roll": "25EU08002" },
+    { "name": "B AASHIKA REDDY", "roll": "25EU08007" },
+    { "name": "CH SAI DHARANIDHAR", "roll": "25EU08012" },
+    { "name": "K JANAKIRAM", "roll": "25EU08031" },
+    { "name": "K SRIRAM PARIKSHITH", "roll": "25EU08033" },
+    { "name": "VISHNU PRIYANI PUPPALA", "roll": "25EU08064" },
+    { "name": "Y RUPAK", "roll": "25EU08066" }
+  ],
+  "IT-II": [
+    { "name": "A HEMANTH", "roll": "25EU08068" },
+    { "name": "CH HARSHINI SESHA PRIYA", "roll": "25EU08082" },
+    { "name": "CH DEEPTHI", "roll": "25EU08084" },
+    { "name": "D NHAYANN", "roll": "25EU08089" },
+    { "name": "K S SURYA SANTHAN", "roll": "25EU08101" },
+    { "name": "M SRI VATHSANKITH KARTHIKAYA", "roll": "25EU08107" },
+    { "name": "P L V N S PUJITHA", "roll": "25EU08111" },
+    { "name": "TANVI PATIBANDLA", "roll": "25EU08115" },
+    { "name": "P VENKATA CHANDAN KUMAR", "roll": "25EU08119" },
+    { "name": "ZAMEERUNNISA", "roll": "25EU08132" }
   ]
 };
