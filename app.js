@@ -82,8 +82,8 @@ function renderStudents() {
         
         card.innerHTML = `
             <div class="student-info">
-                <span class="student-name">${student.name}</span>
                 <span class="student-roll">${student.roll}</span>
+                <span class="student-name">${student.name}</span>
             </div>
             <div class="checkbox-wrapper">
                 <input type="checkbox" ${absentRollNumbers.has(student.roll) ? 'checked' : ''} tabindex="-1">
