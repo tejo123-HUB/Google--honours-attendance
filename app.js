@@ -116,11 +116,12 @@ function updateCounts() {
 function generateReport() {
     if (!currentSection) return;
     
-    let report = `${currentSection}\n`;
+    let report = "";
     
     if (absentRollNumbers.size === 0) {
-        report += "all present";
+        report = `${currentSection} : all present`;
     } else {
+        report = `${currentSection} : absentee's\n`;
         const sortedAbsent = Array.from(absentRollNumbers).sort();
         report += sortedAbsent.join("\n");
     }
