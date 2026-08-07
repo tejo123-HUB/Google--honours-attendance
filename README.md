@@ -1,31 +1,43 @@
-# CSE-4 Attendance Tracker
+# Google Cloud Honors Attendance Tracker
 
-A sleek, premium, and fully responsive web application designed for quickly marking and generating attendance reports for the CSE-4 class. 
+A premium, fast, and responsive web application designed for seamlessly marking and generating attendance reports for the Google Cloud Honors program. 
 
-## 🚀 Features
+The application has been explicitly designed for an optimized mobile experience with a stunning modern light-theme UI and soft-shadow neumorphic elements. 
 
-- **Mobile-First Premium Design**: Uses a dark mode glassmorphism UI with vibrant accents and modern typography, optimized heavily for mobile and desktop screens.
-- **Dynamic Interactions**: Features fluid cascading animations on load, custom animated checkboxes, and smooth transitions.
-- **Smart Formatting**: Generates an exact text report of absent roll numbers. If no one is absent, it smartly outputs `all present`.
-- **One-Click Copy**: A built-in modal (designed as a bottom-sheet on mobile devices) provides a 1-click button to copy the generated report directly to your clipboard.
-- **Sticky Action Bar**: Ensures you never have to scroll back to the top/bottom on mobile to generate your report.
+## Features
 
-## 🛠️ Technologies Used
+- **Dynamic Section Routing**: Automatically loads students for specific sections (CSE-I through CSE-VII) without page reloads.
+- **Offline-Ready Database**: Student records are securely loaded via a localized `data.js` file, meaning the app runs blazingly fast without relying on external API calls or Google Sheets fetch limits.
+- **Premium Mobile UI**:
+  - Soft drop-shadows and glassmorphism elements.
+  - Sticky headers for easy tracking on long lists.
+  - Interactive "Classroom Cards" for the home dashboard.
+  - Native-feeling bottom sheet modals for reports.
+- **One-Click Reports**: Generates a clean, formatted text report of absent roll numbers (e.g., `CSE-IV\n25EU04202\n25EU04209`) and offers a 1-click "Copy" button.
 
-- **HTML5**: Semantic structure.
-- **Vanilla CSS3**: Premium styling, custom animations, flexbox/grid layouts, and media queries for flawless mobile responsiveness.
-- **Vanilla JavaScript (ES6)**: State management (tracking absentees via a `Set`), dynamic DOM manipulation, and clipboard API interaction. No external frameworks used.
+## Architecture
 
-## 💻 How to Use
+The project is built using pure Vanilla web technologies for maximum performance and zero dependency overhead:
+- **`index.html`**: The structural backbone containing the Section Grid View and Attendance Tracking View.
+- **`style.css`**: A bespoke CSS architecture featuring a curated professional color palette, fluid typography, CSS Grid/Flexbox layouts, and custom micro-animations. 
+- **`app.js`**: Vanilla JavaScript handling the DOM manipulation, view transitions, and attendance state logic.
+- **`data.js`**: A pure JavaScript object storing the structured JSON of all students across all branches. 
 
-Since this is a lightweight frontend-only application without any complex build steps, using it is incredibly simple:
+## Usage
 
-1. Clone or download this repository.
-2. Open the `index.html` file directly in any modern web browser.
-3. Tap or click on the student cards to toggle their absent status.
-4. Click the **Generate** button at the top to create the report.
-5. Click **Copy** to copy the formatted text and paste it wherever needed!
+1. Open `index.html` in any modern web browser.
+2. Select the specific class section you are monitoring from the home dashboard.
+3. Tap on a student's card to mark them as **Absent** (the card will highlight red and display a checkmark).
+4. Tap the **Generate** button in the sticky header.
+5. Review the formatted list in the pop-up modal and click **Copy**.
 
-## 🎓 Student Data
+## Deployment
 
-The tracker comes pre-configured with the specific roll numbers and names for CSE-4 students. The data is managed dynamically via an array in `app.js` and can be easily updated or expanded as needed simply by modifying the array.
+This static site can be hosted anywhere, but is perfectly suited for **GitHub Pages**.
+
+1. Navigate to the `Settings` of your GitHub repository.
+2. Under `Pages`, set the source to deploy from the `main` branch.
+3. Your site will automatically go live, and you can map a Custom Domain to it if desired. 
+
+---
+*Built for the Google Cloud Honors Program.*
